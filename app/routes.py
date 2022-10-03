@@ -1,42 +1,32 @@
 from app import app #importamos nuestra app
 import re #para manipular regular expresiones
-from flask import render_template, request #las importar para usarlo en nuestra ruta
-
-from app import db #para mandar solicitudes
-
-#los modelos siguientes nos ayudan a manejar los apis
+from flask import render_template, request
+from app import db
 import requests
 import json
-
-#importamos los modelosque vamos utilizar en nuetras rutas
-from app.models import User
-
-#para manipular fechas
-from datetime import datetime
-
-#varias rutas pueden ser defenidas por la misma funcion
+from app.models import Usuario
 
 @app.route("/")
-@app.route('/index', methods=['GET'])
-#la funcionedefine el comportamiento del servidor al ser solicitado
- 
-def index():
-    user={'username':'usuario'}
+@app.route('/indice', methods=['GET'])
+def inicio():
+    return render_template("inicio.html")
 
-    return render_template("index.html", title='Moodsica app',user=user, elemento1='codigo',elemento2='HTML')
+#completar rutas, metodos y funciones
+@app.route("/acercade")
+def acerca():
+    return render_template("acercade.html")
+
+@app.route("/registro/", methods=["GET", "POST"])
+def registro():
+    return render_template("registro.html")
 
 
 
-@app.route("/base")
-def base():
-    return render_template("base.html")
+#@app.route("/micuenta/playlist", methods=[])
+#@app.route("/micuenta/playlist/agregar", methods=[])
+#@app.route("/micuenta/playlist/borrar", methods=[])
+#@app.route("/micuenta/playlist/fondo", methods=[])
+#@app.route("/micuenta/playlist/fondo/aplicar", methods=[])
 
-#En esta parte es la parte de login del usuario
-
-@app.route("/registrate/", methods=["GET", "POST"])
-def registrate():
-     if request.method == "POST":
-         username = request.form["username"]
-         password = request.form["password"]
-         return "login attempt for username " + username
-     return render_template("Registrate.html")
+#@app.route("/micuenta/salir", methods=[])
+#@app.route("/micuenta/eliminar", methods=[])
