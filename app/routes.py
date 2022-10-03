@@ -11,7 +11,6 @@ from app.models import Usuario
 def inicio():
     return render_template("inicio.html")
 
-#completar rutas, metodos y funciones
 @app.route("/acercade")
 def acerca():
     return render_template("acercade.html")
@@ -20,7 +19,10 @@ def acerca():
 def registro():
     return render_template("registro.html")
 
-
+@app.route("/ingreso", methods=["GET"])
+def ingreso():
+    return render_template("ingreso.html")
+#completar rutas, metodos y funciones
 
 #@app.route("/micuenta/playlist", methods=[])
 #@app.route("/micuenta/playlist/agregar", methods=[])
