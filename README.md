@@ -15,7 +15,7 @@
 
 ## Back-end
  ###### APIs
-  Para este proyecto usamos 2 APIs
+  
 
   ###### Requests
   ###### Responses
