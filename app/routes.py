@@ -4,7 +4,7 @@ from flask import render_template, request
 from app import db
 import requests
 import json
-from app.models import Usuario
+from app.models import *
 
 @app.route("/")
 @app.route('/indice', methods=['GET'])
@@ -34,11 +34,11 @@ def ingreso():
 
 #completar rutas, metodos y funciones
 
-#@app.route("/micuenta/playlist", methods=[])
-#@app.route("/micuenta/playlist/agregar", methods=[])
-#@app.route("/micuenta/playlist/borrar", methods=[])
-#@app.route("/micuenta/playlist/fondo", methods=[])
-#@app.route("/micuenta/playlist/fondo/aplicar", methods=[])
+#@app.route("/micuenta/playlist", methods=["GET"])
+#@app.route("/micuenta/playlist/agregar", methods=["POST"])
+#@app.route("/micuenta/playlist/borrar", methods=["GET", "DELETE"])
+#@app.route("/micuenta/playlist/fondo", methods=["GET"])
+#@app.route("/micuenta/playlist/fondo/aplicar", methods=["GET", "POST"])
 
-#@app.route("/micuenta/salir", methods=[])
-#@app.route("/micuenta/eliminar", methods=[])
+#@app.route("/micuenta/salir", methods=["GET"])
+#@app.route("/micuenta/eliminar", methods=["GET", "DELETE"])
