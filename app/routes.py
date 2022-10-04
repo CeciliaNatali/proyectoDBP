@@ -17,11 +17,21 @@ def acerca():
 
 @app.route("/registro/", methods=["GET", "POST"])
 def registro():
+    if request.method == "POST":
+        usuario    = request.form["usuario"]
+        email      = request.form["email"]
+        contrasena = request.form["contrasenna"]
+        return "Intento de registro para el usuario " + usuario
     return render_template("registro.html")
 
-@app.route("/ingreso", methods=["GET"])
+@app.route("/ingreso", methods=["GET", "POST"])
 def ingreso():
+    if request.method == "POST":
+        usuario    = request.form["usuario"]
+        contrasena = request.form["contrasenna"]
+        return "Intento de ingreso para el usuario " + usuario
     return render_template("ingreso.html")
+
 #completar rutas, metodos y funciones
 
 #@app.route("/micuenta/playlist", methods=[])

@@ -16,6 +16,8 @@ class Usuario(db.Model):
     def __repr__(self):
         return '<user {}>'.format(self.usuario, self.email)
 
+
+
 #class Playlist(db.Model):
     #id    = db.Column(db.Integer, primary_key=True, autoincrement=True, ForeignKey=Usuario) #?
     #agregar foreign key a Usuario
