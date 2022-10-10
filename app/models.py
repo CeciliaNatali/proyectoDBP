@@ -32,10 +32,11 @@ class Mood(db.Model):
     id          = db.Column(db.Integer, primary_key=True, autoincrement=True)
     tag         = db.Column(db.String(20))
     #emoji = db.Column(db.) #imagen
-    cancion   = db.relationship('Cancion', backref='mood', lazy=True)
+    cancion   = db.relationship('Cancion', backref='mood', lazy=True, uselist=False) 
 
     def __repr__(self):
         return '<mood {}>'.format(self.tag)
+
 
 class Cancion(db.Model):
     id          = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -43,7 +44,7 @@ class Cancion(db.Model):
     artista     = db.Column(db.String(50))
     genero      = db.Column(db.String(30))
     playlist_id = db.Column(db.Integer, db.ForeignKey('playlist.id'))
-    mood_id     = db.Column(db.Integer, db.ForeignKey('mood.id'), nullable=False, uselist=False)
+    mood_id     = db.Column(db.Integer, db.ForeignKey('mood.id'), nullable=False)
 
     def __repr__(self):
         return '<cancion {}>'.format(self.titulo)

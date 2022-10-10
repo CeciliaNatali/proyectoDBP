@@ -48,8 +48,6 @@ def ingreso():
 #@app.route("/micuenta/playlist/fondo/aplicar", methods=["GET", "POST"])
 #@app.route("/micuenta/salir", methods=["GET"])
 
-
-
 #Eliminar cuenta
 @app.route("/micuenta/eliminar", methods=["GET", "DELETE"])
 def deleteCuenta(nombre):
