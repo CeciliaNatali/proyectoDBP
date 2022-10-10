@@ -7,4 +7,6 @@ import requests
 import json
 
 #def fondo():
+
+
 #def aplicar():
