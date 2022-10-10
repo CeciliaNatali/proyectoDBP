@@ -6,6 +6,7 @@ import requests
 import json
 from app.models import *
 
+
 @app.route("/")
 @app.route('/indice', methods=['GET'])
 def inicio():
@@ -38,10 +39,10 @@ def ingreso():
 #@app.route("/acercade", methods=['GET'])
 #@app.route("/registro/", methods=["GET", "POST"])
 #@app.route("/ingreso", methods=["GET", "POST"])
+
 #@app.route("/micuenta/eliminar", methods=["GET", "DELETE"])
 #@app.route("/micuenta/playlist/agregar", methods=["POST"])
 #@app.route("/micuenta/playlist", methods=["GET"])
-
 #@app.route("/micuenta/playlist/borrar", methods=["GET", "DELETE"])
 #@app.route("/micuenta/playlist/fondo", methods=["GET"])
 #@app.route("/micuenta/playlist/fondo/aplicar", methods=["GET", "POST"])
