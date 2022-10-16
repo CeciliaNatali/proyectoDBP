@@ -115,12 +115,13 @@ celerybeat.pid
 .env
 .venv
 virtual/
+virtualProyectovenv/
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
-virtualProyectovenv/
+
 .flaskenv
 
 # Spyder project settings
