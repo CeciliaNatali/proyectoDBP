@@ -1,5 +1,3 @@
-
-from crypt import methods
 from flask import Blueprint
 from app.controllers.FondoController import aplicar, fondo
 

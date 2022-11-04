@@ -6,32 +6,10 @@ import requests
 import json
 from app.models import *
 
-
-@app.route("/")
+@app.route('/')
 @app.route('/indice', methods=['GET'])
 def inicio():
-    return render_template("inicio.html")
-
-@app.route("/acercade")
-def acerca():
-    return render_template("acercade.html")
-
-@app.route("/registro/", methods=["GET", "POST"])
-def registro():
-    if request.method == "POST":
-        usuario    = request.form["usuario"]
-        email      = request.form["email"]
-        contrasena = request.form["contrasenna"]
-        return "Intento de registro para el usuario " + usuario
-    return render_template("registro.html")
-
-@app.route("/ingreso", methods=["GET", "POST"])
-def ingreso():
-    if request.method == "POST":
-        usuario    = request.form["usuario"]
-        contrasena = request.form["contrasenna"]
-        return "Intento de ingreso para el usuario " + usuario
-    return render_template("ingreso.html")
+    return render_template("indice.html")
 
 #completar rutas, metodos y funciones
 
@@ -47,6 +25,8 @@ def ingreso():
 #@app.route("/cuenta/playlist/fondo", methods=["GET"])
 #@app.route("/cuenta/playlist/fondo/aplicar", methods=["GET", "POST"])
 #@app.route("/cuenta/salir", methods=["GET"])
+
+
 
 #Eliminar cuenta
 @app.route("/cuenta/eliminar", methods=["GET", "DELETE"])
