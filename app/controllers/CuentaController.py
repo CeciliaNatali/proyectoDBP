@@ -7,7 +7,11 @@ import requests
 import json
 from cryptography.hazmat.primitives import hashes
 
-#def cuenta():
-#def salir():
-#def PlayList():
 #def buscador():
+#def playlist():
+#def fondo():
+#def salir():
+#def eliminar():
+
+
+

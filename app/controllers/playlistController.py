@@ -9,4 +9,4 @@ from cryptography.hazmat.primitives import hashes
 
 #def agregar():
 #def borrar():
-#def fondo():
+

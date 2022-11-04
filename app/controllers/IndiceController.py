@@ -7,7 +7,8 @@ import requests
 import json
 from cryptography.hazmat.primitives import hashes
 
+def inicio():
+    return render_template("inicio.html")
 
-#def registro():
-#def regristar():
-#def registrarse():
+def acerca():
+    return render_template("acercade.html")

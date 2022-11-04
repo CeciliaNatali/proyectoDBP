@@ -1,10 +1,9 @@
 from flask import Blueprint
-from app.controllers.ingresoController import ingresa, registrate
+from app.controllers.IngresoController import ingreso, registro
 
 
-ingreso_bp= Blueprint('ingreso_bp', __name__)
+ingreso_bp = Blueprint('ingreso_bp', __name__)
 
 
-ingreso_bp.route("/", methods=["GET", "POST"]) (ingresa)
-
-ingreso_bp.route("/registro", methods=["GET", "POST"]) (registrate)
+ingreso_bp.route("/ingreso", methods=["GET", "POST"]) (ingreso)
+ingreso_bp.route("/registro", methods=["GET", "POST"]) (registro)

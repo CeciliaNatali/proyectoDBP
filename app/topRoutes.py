@@ -1,5 +1,5 @@
-from app import app #importamos nuestra app
-import re #para manipular regular expresiones
+from app import app # importamos nuestra app
+import re           # para manipular regular expresiones
 from flask import render_template, request
 from app import db
 import requests
@@ -40,16 +40,16 @@ def ingreso():
 #@app.route("/registro/", methods=["GET", "POST"])
 #@app.route("/ingreso", methods=["GET", "POST"])
 
-#@app.route("/micuenta/eliminar", methods=["GET", "DELETE"])
-#@app.route("/micuenta/playlist/agregar", methods=["POST"])
-#@app.route("/micuenta/playlist", methods=["GET"])
-#@app.route("/micuenta/playlist/borrar", methods=["GET", "DELETE"])
-#@app.route("/micuenta/playlist/fondo", methods=["GET"])
-#@app.route("/micuenta/playlist/fondo/aplicar", methods=["GET", "POST"])
-#@app.route("/micuenta/salir", methods=["GET"])
+#@app.route("/cuenta/eliminar", methods=["GET", "DELETE"])
+#@app.route("/cuenta/playlist/agregar", methods=["POST"])
+#@app.route("/cuenta/playlist", methods=["GET"])
+#@app.route("/cuenta/playlist/borrar", methods=["GET", "DELETE"])
+#@app.route("/cuenta/playlist/fondo", methods=["GET"])
+#@app.route("/cuenta/playlist/fondo/aplicar", methods=["GET", "POST"])
+#@app.route("/cuenta/salir", methods=["GET"])
 
 #Eliminar cuenta
-@app.route("/micuenta/eliminar", methods=["GET", "DELETE"])
+@app.route("/cuenta/eliminar", methods=["GET", "DELETE"])
 def deleteCuenta(nombre):
     usuario = Usuario.query.filter(Usuario.nombre ==nombre).first()
 
@@ -105,7 +105,7 @@ def verifyPassword(password):
 
 
 #------------------------------------------------------
-@app.route("/micuenta/playlist/agregar", methods=["POST"])
+@app.route("/cuenta/playlist/agregar", methods=["POST"])
 
 def AgregarMusica():
         #usamos el try para poder recuperarnos de algun errro
@@ -139,7 +139,7 @@ def AgregarMusica():
 
 #mostramos nuestra lista de musicas en nuestra cuenta
 
-@app.route("/micuenta/playlist", methods=["GET"])
+@app.route("/cuenta/playlist", methods=["GET"])
 def MiPlaylist(nombre):
     micuenta_usuario=Usuario.playlist.query.all()
     ListMusic=""
