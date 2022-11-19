@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.controllers.CuentaController import cuenta, buscar, fondo, playlist, salir, eliminar
+from app.controllers.cuentaController import cuenta, buscar, fondo, playlist, salir, eliminar
 
 
 cuenta_bp= Blueprint('cuenta_bp', __name__)

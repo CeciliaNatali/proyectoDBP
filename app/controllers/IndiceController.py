@@ -13,3 +13,9 @@ def inicio():
 
 def acerca():
     return render_template("acercade.html")
+
+def ingresa():
+    return render_template("ingreso.html")
+
+def registrate():
+    return render_template("registro.html")

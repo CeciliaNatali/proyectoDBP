@@ -15,18 +15,29 @@ def inicio():
 
 #@app.route('/indice', methods=['GET'])
 #@app.route("/acercade", methods=['GET'])
-#@app.route("/registro/", methods=["GET", "POST"])
-#@app.route("/ingreso", methods=["GET", "POST"])
+
 
 #@app.route("/cuenta/eliminar", methods=["GET", "DELETE"])
 #@app.route("/cuenta/playlist/agregar", methods=["POST"])
-#@app.route("/cuenta/playlist", methods=["GET"])
+@app.route("/cuenta/playlist", methods=["GET"])
 #@app.route("/cuenta/playlist/borrar", methods=["GET", "DELETE"])
 #@app.route("/cuenta/playlist/fondo", methods=["GET"])
 #@app.route("/cuenta/playlist/fondo/aplicar", methods=["GET", "POST"])
-#@app.route("/cuenta/salir", methods=["GET"])
 
+#En esta parte salimos de la cuenta.
+@app.route("/cuenta/salir", methods=["GET"])
+def salircuenta():
+    return render_template("indice.html")
 
+#la parte de registrarse
+@app.route("/registro/", methods=["GET", "POST"])
+def registrate():
+    if request.method=="POST":
+        nombre=request.form["nombre"]
+        contrasenna=request.form["contrasenna"]
+        return "registraste con post al user" + nombre
+    return render_template("registro.html")
+#------------------------------------------------------------------
 
 #Eliminar cuenta
 @app.route("/cuenta/eliminar", methods=["GET", "DELETE"])
@@ -44,7 +55,7 @@ def deleteCuenta(nombre):
     return "Usuario Eliminado"
 
 
-
+#agregar Usuario
 @app.route("/add/user", methods=['GET'])
 def agregarUsuario():
     #usamos el try para poder recuperarnos de algun errro
@@ -86,7 +97,6 @@ def verifyPassword(password):
 
 #------------------------------------------------------
 @app.route("/cuenta/playlist/agregar", methods=["POST"])
-
 def AgregarMusica():
         #usamos el try para poder recuperarnos de algun errro
     try:

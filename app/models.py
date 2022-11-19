@@ -8,7 +8,7 @@ from pickle import FALSE
 
 class Usuario(db.Model):
     id          = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    nombre      = db.Column(db.String(10), index=True, unique=True)
+    nombre      = db.Column(db.String(70), index=True, unique=True)
     email       = db.Column(db.String(70), index=True, unique=True)
     contrasenna = db.Column(db.String(50))
     playlist    = db.relationship('Playlist', backref='usuario', lazy=True, uselist=False)
@@ -58,3 +58,5 @@ class Fondo(db.Model):
 
     def __repr__(self):
         return '<fondo {}>'.format(self.nombre)
+
+db.create_all()
