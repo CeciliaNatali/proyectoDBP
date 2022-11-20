@@ -123,6 +123,7 @@ env.bak/
 venv.bak/
 virtualProyecto/
 virtualProct/
+virtualProyect/
 .flaskenv
 
 
