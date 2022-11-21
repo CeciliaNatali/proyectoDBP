@@ -11,6 +11,20 @@ from app.models import *
 def inicio():
     return render_template("indice.html")
 
+# Listar todos los usuarios
+@app.route("/usuarios")
+def listarUsuarios():
+    #podemos pedir la informacion de varias filas de la tabla
+    #al mismo tiempo usando 'query.all()', esto devuelve una lista
+    usuarios = Usuario.query.all()
+    print(usuarios)
+    userStrings = ""
+    #podemos iterar por el resultado como cualquier lista
+    for usuario in usuarios:
+        userStrings += usuario.nombre + " " + usuario.contrasenna + " " + usuario.email + "<br>"
+    return userStrings
+
+
 #completar rutas, metodos y funciones
 
 #@app.route('/indice', methods=['GET'])
@@ -27,21 +41,6 @@ def inicio():
 #@app.route("/cuenta/salir", methods=["GET"])
 
 
-
-#Eliminar cuenta
-@app.route("/cuenta/eliminar", methods=["GET", "DELETE"])
-def deleteCuenta(nombre):
-    usuario = Usuario.query.filter(Usuario.nombre ==nombre).first()
-
-    if usuario == None:
-        return "Usuario no encontrado"
-    
-    db.session.delete(usuario)
-    try:
-        db.session.commit()
-    except Exception as err:
-        return "Eliminacion invalida"
-    return "Usuario Eliminado"
 
 
 
