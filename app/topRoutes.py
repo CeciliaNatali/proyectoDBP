@@ -11,81 +11,31 @@ from app.models import *
 def inicio():
     return render_template("indice.html")
 
+# Listar todos los usuarios
+@app.route("/usuarios")
+def listarUsuarios():
+    #podemos pedir la informacion de varias filas de la tabla
+    #al mismo tiempo usando 'query.all()', esto devuelve una lista
+    usuarios = Usuario.query.all()
+    print(usuarios)
+    userStrings = ""
+    #podemos iterar por el resultado como cualquier lista
+    for usuario in usuarios:
+        userStrings += usuario.nombre + " " + usuario.contrasenna + " " + usuario.email + "<br>"
+    return userStrings
+
+
 #completar rutas, metodos y funciones
 
 #@app.route('/indice', methods=['GET'])
 #@app.route("/acercade", methods=['GET'])
-
-
-#@app.route("/cuenta/eliminar", methods=["GET", "DELETE"])
+#@app.route("/registro/", methods=["GET", "POST"])
+#@app.route("/ingreso", methods=["GET", "POST"])
 #@app.route("/cuenta/playlist/agregar", methods=["POST"])
 @app.route("/cuenta/playlist", methods=["GET"])
 #@app.route("/cuenta/playlist/borrar", methods=["GET", "DELETE"])
 #@app.route("/cuenta/playlist/fondo", methods=["GET"])
 #@app.route("/cuenta/playlist/fondo/aplicar", methods=["GET", "POST"])
-
-#En esta parte salimos de la cuenta.
-@app.route("/cuenta/salir", methods=["GET"])
-def salircuenta():
-    return render_template("indice.html")
-
-#la parte de registrarse
-@app.route("/registro/", methods=["GET", "POST"])
-def registrate():
-    if request.method=="POST":
-        nombre=request.form["nombre"]
-        contrasenna=request.form["contrasenna"]
-        return "registraste con post al user" + nombre
-    return render_template("registro.html")
-#------------------------------------------------------------------
-
-#Eliminar cuenta
-@app.route("/cuenta/eliminar", methods=["GET", "DELETE"])
-def deleteCuenta(nombre):
-    usuario = Usuario.query.filter(Usuario.nombre ==nombre).first()
-
-    if usuario == None:
-        return "Usuario no encontrado"
-    
-    db.session.delete(usuario)
-    try:
-        db.session.commit()
-    except Exception as err:
-        return "Eliminacion invalida"
-    return "Usuario Eliminado"
-
-
-#agregar Usuario
-@app.route("/add/user", methods=['GET'])
-def agregarUsuario():
-    #usamos el try para poder recuperarnos de algun errro
-    try:
-        #esta ruta espera tres parametros
-        args = request.args
-        nombre = args.get("nombre")
-        contrasenna = args.get("contrasenna")
-        email = args.get("email")
-        #el usuario podria no mandar los parametros, hay que verificar que sean validos
-        if (nombre == None):
-            return "Falta parametro nombre"
-        elif (contrasenna == None):
-            return "Falta parametro contrasenna"
-        elif (email == None):
-            return "Falta parametro email"
-        
-        if (not verifyPassword(contrasenna)):
-            return "Contrasena invalida"
-        #creamos un nuevo usuario de clase User 
-        newUser = Usuario(nombre=nombre, contrasenna=contrasenna, email=email)
-        #agregamos el usuario a la sesion actual de la db
-        db.session.add(newUser)
-        #mandamos los cambios para que persistan en la db
-        db.session.commit()
-    #en caso ocurra un error podemos recuperarnos sin romper el flujo del programa    
-    except Exception as error:
-        print("Usuario invalido", error)
-        return "Invalid user"       
-    return "usuario agregado"
 
 
 

@@ -12,10 +12,4 @@ def inicio():
     return render_template("indice.html")
 
 def acerca():
-    return render_template("acercade.html")
-
-def ingresa():
-    return render_template("ingreso.html")
-
-def registrate():
-    return render_template("registro.html")
+    return render_template("acercaDe.html")
