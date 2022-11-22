@@ -12,4 +12,4 @@ def inicio():
     return render_template("indice.html")
 
 def acerca():
-    return render_template("acercade.html")
+    return render_template("acercaDe.html")

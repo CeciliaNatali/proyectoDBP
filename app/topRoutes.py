@@ -31,49 +31,12 @@ def listarUsuarios():
 #@app.route("/acercade", methods=['GET'])
 #@app.route("/registro/", methods=["GET", "POST"])
 #@app.route("/ingreso", methods=["GET", "POST"])
-
-#@app.route("/cuenta/eliminar", methods=["GET", "DELETE"])
 #@app.route("/cuenta/playlist/agregar", methods=["POST"])
 #@app.route("/cuenta/playlist", methods=["GET"])
 #@app.route("/cuenta/playlist/borrar", methods=["GET", "DELETE"])
 #@app.route("/cuenta/playlist/fondo", methods=["GET"])
 #@app.route("/cuenta/playlist/fondo/aplicar", methods=["GET", "POST"])
 #@app.route("/cuenta/salir", methods=["GET"])
-
-
-
-
-
-@app.route("/add/user", methods=['GET'])
-def agregarUsuario():
-    #usamos el try para poder recuperarnos de algun errro
-    try:
-        #esta ruta espera tres parametros
-        args = request.args
-        nombre = args.get("nombre")
-        contrasenna = args.get("contrasenna")
-        email = args.get("email")
-        #el usuario podria no mandar los parametros, hay que verificar que sean validos
-        if (nombre == None):
-            return "Falta parametro nombre"
-        elif (contrasenna == None):
-            return "Falta parametro contrasenna"
-        elif (email == None):
-            return "Falta parametro email"
-        
-        if (not verifyPassword(contrasenna)):
-            return "Contrasena invalida"
-        #creamos un nuevo usuario de clase User 
-        newUser = Usuario(nombre=nombre, contrasenna=contrasenna, email=email)
-        #agregamos el usuario a la sesion actual de la db
-        db.session.add(newUser)
-        #mandamos los cambios para que persistan en la db
-        db.session.commit()
-    #en caso ocurra un error podemos recuperarnos sin romper el flujo del programa    
-    except Exception as error:
-        print("Usuario invalido", error)
-        return "Invalid user"       
-    return "usuario agregado"
 
 
 
