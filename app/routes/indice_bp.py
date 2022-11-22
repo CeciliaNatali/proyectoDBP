@@ -1,6 +1,5 @@
 from flask import Blueprint
-from app.controllers.IndiceController import inicio, acerca,ingresa,registrate
-
+from app.controllers.IndiceController import inicio, acerca
 
 indice_bp = Blueprint('indice_bp', __name__)
 

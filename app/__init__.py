@@ -14,7 +14,6 @@ from app.routes.registro_bp import registro_bp
 from app.routes.cuenta_bp import cuenta_bp
 from app.routes.playlist_bp import playlist_bp
 from app.routes.fondo_bp import fondo_bp
-from app.routes.registrate_bp import registro_bp
 from app import models, topRoutes
 
 app.register_blueprint(indice_bp, url_prefix='/indice')

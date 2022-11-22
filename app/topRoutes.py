@@ -32,7 +32,7 @@ def listarUsuarios():
 #@app.route("/registro/", methods=["GET", "POST"])
 #@app.route("/ingreso", methods=["GET", "POST"])
 #@app.route("/cuenta/playlist/agregar", methods=["POST"])
-@app.route("/cuenta/playlist", methods=["GET"])
+#@app.route("/cuenta/playlist", methods=["GET"])
 #@app.route("/cuenta/playlist/borrar", methods=["GET", "DELETE"])
 #@app.route("/cuenta/playlist/fondo", methods=["GET"])
 #@app.route("/cuenta/playlist/fondo/aplicar", methods=["GET", "POST"])
