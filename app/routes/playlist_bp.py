@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.controllers.playlistController import agregar, borrar
+from app.controllers.PlaylistController import agregar, borrar
 from app.models import Playlist
 
 

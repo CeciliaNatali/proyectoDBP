@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.controllers.registrateController import ingreso, registrate
+from app.controllers.RegistrateController import ingreso, registrate
 
 
 registrate_bp = Blueprint('registrate_bp', __name__)

@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.controllers.fondoController import aplicar, fondo
+from app.controllers.FondoController import aplicar, fondo
 
 
 fondo_bp = Blueprint('fondo_bp', __name__)
