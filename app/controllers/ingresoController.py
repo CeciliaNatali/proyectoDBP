@@ -31,3 +31,17 @@ def ingreso():
             return "Error ingresando a la cuenta. Intente nuevamente."
     return render_template("ingreso.html")
 
+def ingresoAsync():
+    body = request.get_json()
+    print(body)
+    usuario = body["usuario"]
+    contrasenna = body["contrasenna"]
+    try:
+        usuario1 = Usuario.query.filter(Usuario.nombre == usuario).first()
+        if usuario1 == None or contrasenna != usuario1.contrasenna:
+            return json.dumps({"success": False})
+        else:
+            return json.dumps({"success": True})
+    except:
+        return json.dumps({"success": False})
+

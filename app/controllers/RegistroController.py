@@ -45,3 +45,34 @@ def registro():
         return redirect("/ingreso")
         
     return render_template("registro.html")
+
+def registroAsync():
+    body = request.get_json()
+    print(body)
+    usuario = body["usuario"]
+    email = body["email"]
+    contrasenna = body["contrasenna"]
+
+    try:
+        usuario1 = Usuario.query.filter(Usuario.nombre == usuario).first()
+        usuario2 = Usuario.query.filter(Usuario.email == email).first()
+    except:
+        return json.dumps({"success": False})
+
+    if usuario1!=None or usuario2!=None:
+        return json.dumps({"success": False})
+    # Validando contraseña (POR IMPLEMETAR)
+    #if not contraValida(contrasenna):
+    #    return "Contraseña inválida."
+
+    nuevoUsuario = Usuario(nombre=usuario, email=email, contrasenna=contrasenna)
+
+    #Ingresando nuevo usuario a la base de datos
+    try:
+        db.session.add(nuevoUsuario)
+        db.session.commit()
+        return json.dumps({"success": True})
+    except Exception as err:
+        print(err)
+        return json.dumps({"success": False})
+

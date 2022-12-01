@@ -1,9 +1,11 @@
 from flask import Flask
 from config import Config
+from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 
 #inicializamos la aplicacion
 app = Flask(__name__)
+cors = CORS(app)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 
