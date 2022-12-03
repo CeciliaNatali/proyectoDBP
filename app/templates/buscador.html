@@ -1,4 +1,15 @@
-{% extends "cuenta.html" %}
-{% block content %}
-<h1>Buscador: {{nombre1}}</h1> 
-{% endblock %}
+<body>
+    <form method="GET">
+        <label for="tag">tag</label>
+        <input name="tag" id="tag" required><br>
+        
+        <label for="yearmin">yearmin</label>
+        <input type="text" name="yearmin" id="yearmin" required><br>
+        
+        <label for="yearmax">yearmax</label>
+        <input type="text" name="yearmax" id="yearmax" required><br>
+        
+        <input type="submit" value="buscador">
+    </form>
+    
+</body>
